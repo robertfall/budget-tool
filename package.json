@@ -7,7 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
-    "nunjucks": "^3.0.0"
+    "nunjucks": "^3.0.0",
+    "pg-promise": "^5.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -15,6 +16,6 @@
     "babel-watch": "^2.0.4"
   },
   "scripts": {
-    "start:development": "babel-watch index.js"
+    "start:development": "babel-watch --debug=5858 index.js"
   }
 }

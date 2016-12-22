@@ -5,6 +5,7 @@ services:
     build: .
     ports:
       - 3000:3000
+      - 5858:5858
     volumes:
      - ./:/app
     links:
@@ -13,7 +14,7 @@ services:
   schema:
     image: dhoer/flyway:4.0.3-alpine
     volumes:
-      - ./db:/flyway/sql
+      - ./db/migrations:/flyway/sql/public
       - ./db/flyway.conf:/flyway/conf/flyway.conf
     links:
       - postgres

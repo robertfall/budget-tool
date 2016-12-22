@@ -1,8 +1,16 @@
 const express = require('express');
-const accounts = express.Router();
+const { getAllAccounts, createAccount } = require('./services');
+module.exports = function (db) {
+  const accounts = express.Router();
+  accounts.get('/', (req, resp) => {
+    getAllAccounts(db)
+      .then((accounts) => {
+        resp.render('accounts/index', { accounts });
+      })
+      .catch((error) => {
+        resp.status(500).send(error);
+      });
+  });
 
-accounts.get('/', (req, resp) => {
-  resp.render('accounts/index');
-});
-
-module.exports = accounts;
+  return accounts;
+};
