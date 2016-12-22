@@ -1,0 +1,20 @@
+{
+  "name": "budget",
+  "version": "1.0.0",
+  "description": "Budgetting Tool",
+  "main": "index.js",
+  "author": "Robert Fall",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "nunjucks": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-watch": "^2.0.4"
+  },
+  "scripts": {
+    "start:development": "babel-watch index.js"
+  }
+}
