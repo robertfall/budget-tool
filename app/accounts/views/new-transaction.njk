@@ -1,0 +1,29 @@
+{% extends "shared/layout.njk" %} 
+{% block content %}
+<h1>Add Transaction</h1>
+<form method="POST" action="{{ paths.transactions(account.id) }}" class="pure-form pure-form-stacked">
+  <fieldset>
+    <label for="description">Description: </label>
+    <input type="text" name="description" />
+
+    <label for="amount">Amount: </label>
+    <input type="text" name="amount" />
+
+    <label for="isExpense">
+      <input type="checkbox" name="isExpense" checked>
+      Expense?
+    </label>
+      
+    <label for="amount">Processed On: </label>
+    <input type="date" name="processedOn" />
+
+    <label for="accountId">Account:</label>
+    <select name="accountId">
+      {% for account in accounts %}
+        <option value="{{ account.id }}">{{ account.name }}</option>
+      {% endfor %}
+    </select>
+  </fieldset>
+  <input type="submit" value="Create" class="pure-button pure-button-primary"/>
+</form>
+{% endblock %}

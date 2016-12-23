@@ -2,4 +2,17 @@
 {% block content %}
 <h1>{{ account.name }}</h1>
 <h2>Transactions</h2>
+<table class="pure-table pure-table-horizontal pure-table-striped">
+  <tbody>
+    {% for transaction in transactions %}
+      <tr>
+        <td>{{ transaction.processed_on | date }}</td>
+        <td>{{ transaction.description }}</td>
+        <td>{{ transaction.amount.toFixed(2) }}</td>
+        <td>{{ transaction.balance.toFixed(2) }}</td>
+      </tr>
+    {% endfor %}
+  <tbody>
+</table>
+<a class="pure-button" href="{{ paths.newTransaction(account.id) }}">Add Transaction</a>
 {% endblock %}
