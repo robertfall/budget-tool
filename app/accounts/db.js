@@ -12,7 +12,9 @@ module.exports = function (db) {
   }
 
   function transactionsForAccount(accountId) {
-    return db.any('SELECT * FROM transactions WHERE account_id = $1 ORDER BY processed_on', accountId);
+    return db.any(
+    'SELECT * ' +
+    'FROM transactions_view WHERE account_id = $1 ORDER BY processed_on', accountId);
   }
 
   function createTransaction({ description, amount, processedOn, accountId }) {

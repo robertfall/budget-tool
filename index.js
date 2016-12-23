@@ -9,7 +9,8 @@ const server = express();
 
 nunjucks.configure('app', {
     autoescape: true,
-    express: server
+    express: server,
+    watch: true,
 });
 
 server.set('view engine', 'njk')

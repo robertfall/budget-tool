@@ -6,10 +6,10 @@
   <tbody>
     {% for transaction in transactions %}
       <tr>
-        <td>{{ transaction.processed_on | date }}</td>
+        <td>{{ transaction.processed_on }}</td>
         <td>{{ transaction.description }}</td>
-        <td>{{ transaction.amount.toFixed(2) }}</td>
-        <td>{{ transaction.balance.toFixed(2) }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.balance }}</td>
       </tr>
     {% endfor %}
   <tbody>
