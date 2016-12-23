@@ -1,0 +1,15 @@
+{% extends "shared/layout.njk" %} 
+{% block content %}
+<h1>Create Account</h1>
+<form method="POST" action="{{ paths.index() }}" class="pure-form pure-form-stacked">
+  <fieldset>
+    <label for="name">Name: </label>
+    <input type="text" name="name" />
+    <label for="isCredit">
+      <input type="checkbox" name="isCredit">
+      Credit Account
+    </label>
+  </fieldset>
+  <input type="submit" value="Create" class="pure-button pure-button-primary"/>
+</form>
+{% endblock %}

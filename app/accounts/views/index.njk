@@ -1,0 +1,13 @@
+{% extends "shared/layout.njk" %}
+{% block content %}
+  <h1>Accounts</h1>
+  <ul>
+    {% for account in accounts %}
+      <li>
+        <a href="{{ paths.show(account.id) }}">
+          {{ account.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

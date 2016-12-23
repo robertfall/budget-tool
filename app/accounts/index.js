@@ -1,16 +1,7 @@
-const express = require('express');
-const { getAllAccounts, createAccount } = require('./services');
-module.exports = function (db) {
-  const accounts = express.Router();
-  accounts.get('/', (req, resp) => {
-    getAllAccounts(db)
-      .then((accounts) => {
-        resp.render('accounts/index', { accounts });
-      })
-      .catch((error) => {
-        resp.status(500).send(error);
-      });
-  });
+const actions = require('./actions');
+const paths = require('./paths');
 
-  return accounts;
+module.exports = {
+  router: actions,
+  paths
 };

@@ -1,24 +1,21 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
-const accounts = require('./app/accounts');
-const createDb = require('./app/utils/create-db');
+const bodyParser = require('body-parser');
+const app = require('./app');
 
-const app = express();
-const db = createDb();
+global.Promise = require('bluebird');
+
+const server = express();
 
 nunjucks.configure('app', {
     autoescape: true,
-    express: app
-});
-app.set('view engine', 'njk')
-
-app.get('/', function(req, res) {
-    res.render('layout');
+    express: server
 });
 
-app.use('/accounts', accounts(db));
+server.set('view engine', 'njk')
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json());
+server.use(express.static('public'));
+server.use('/', app);
 
-app.listen(3000);
-process.on('exit', () => {
-  pgp.end();
-});
+server.listen(3000);
